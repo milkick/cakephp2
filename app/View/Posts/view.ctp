@@ -1,6 +1,7 @@
 
 <h1><?php echo h($getPostData['Post']['title']); ?></h1>
 <p><small>Created: <?php echo $getPostData['Post']['created']; ?></small></p>
+<p><small>Modified: <?php echo $getPostData['Post']['modified'] ? $getPostData['Post']['modified'] : 'No modified'; ?></small></p>
 <p><?php echo h($getPostData['Post']['body']); ?></p>
 <?php 
 echo $this->Html->link('この記事を編集', array('controller' => 'posts', 'action' => 'edit', $getPostData['Post']['id'])); 

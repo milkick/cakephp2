@@ -56,4 +56,17 @@ class PostsController extends AppController {
         }
         $this->set('contentsData',$contentsData);
     }
+    public function delete($id){
+        if ($this->request->is('get')) {
+            throw new MethodNotAllowedException('リクエストエラー');
+        }
+        if ($this->request->is('post')) {
+            if ($this->Post->delete($id)) {
+                $this->Flash->success('正常に削除できました');
+            }else{
+                $this->Flash->error('削除できませんでした');
+            }
+        }
+        $this->redirect(array('controller' => 'posts', 'action' => 'index'));
+    }
 }
